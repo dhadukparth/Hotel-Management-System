@@ -1,0 +1,1697 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+::selection{
+    background-color: #4fce5d;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button{
+    display: none;
+}
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+    background-color: black;
+    position: relative;
+
+    &.scroll{
+
+        .btn{
+            color: black;
+
+            &::before,
+            &::after{
+                background-color: black;
+            }
+        }
+
+        header{
+            background-color: white;
+            padding: 5px 100px;
+
+            .logo{
+                color: black;
+            }
+
+            a{
+                color: black;
+
+                &::before,
+                &::after{
+                    background-color: black;
+                }
+            }
+        }
+    }
+}
+
+
+// Menu Bar
+header{
+    width: 100%;
+    height: 60px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 75px;
+    position: fixed;
+    transition: 1s ease-in-out;
+    z-index: 999;
+
+    .logo{
+        color: white;
+        font-size: larger;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    nav{
+        ul{
+            display: flex;
+            
+            li{
+                margin: 0 10px;
+
+                a{
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: medium;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover{
+                        &::before{
+                            width: 100%;
+                            opacity: 1;
+                        }
+                    }
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        opacity: 0;
+                        background-color: white;
+                        transition: 1s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn{
+        color: white;
+        border: none;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: large;
+        font-weight: 500;
+        position: relative;
+        transition: 1s ease-in-out;
+    
+        &:hover{
+            &::before,
+            &::after{
+                opacity: 1;
+                width: 100%;
+            }
+        }
+    
+    
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: 1s ease-in-out;
+            opacity: 0;
+        }
+    
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: 1s ease-in-out;
+            opacity: 0;
+        }
+    }
+
+    .togglebtn{
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 600;
+        display: none;
+        cursor: pointer;
+    }
+}
+
+
+// Home Page CSS
+.home__container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .home_content{
+        text-transform: uppercase;
+        color: white;
+        
+        h1{
+            font-size: 2.5rem;
+            font-weight: 600;
+            padding: 5px 0;
+        }
+
+        h3{
+            font-size: 2rem;
+            font-weight: 600;
+            padding: 5px 0;
+        }
+    }
+
+    .home_image{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+
+        img{
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .social_icon{
+
+        .icon{
+            text-align: center;
+            margin: 35px 0;
+            position: relative;
+            color: white;
+            cursor: pointer;
+
+            &:hover.facebook{
+                color: #1778f2;
+
+                p{
+                    display: block;
+                    color: #1778f2;
+                }
+            }
+
+            &:hover.whatsapp{
+                color: #4fce5d;
+
+                p{
+                    display: block;
+                    color: #4fce5d;
+                }
+            }
+
+            &:hover.instagram{
+                color: #fb3958;
+
+                p{
+                    display: block;
+                    color: #fb3958;
+                }
+            }
+
+            &:hover.twitter{
+                color: #1DA1F2;
+
+                p{
+                    display: block;
+                    color: #1DA1F2;
+                }
+            }
+
+            &:hover.linkedin{
+                color: #006192;
+
+                p{
+                    display: block;
+                    color: #006192;
+                }
+            }
+
+            &:hover.youtube{
+                color: #ff0000;
+                
+                p{
+                    display: block;
+                    color: #ff0000;
+                }
+            }
+
+            i{
+                font-size: 3rem;
+            }
+            
+            p{
+                font-size: 15px;
+                font-weight: 600;
+                background-color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                position: absolute;
+                top: 12px;
+                left: -120px;
+                width: 110px;
+                height: auto;
+                display: none;
+            }
+        }
+    }
+
+}
+
+
+// About Page CSS
+.about__container{
+    width: 100%;
+    height: auto;
+    padding: 50px;
+
+    .maintitle{
+        color: white;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 3rem;
+
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 40%;
+            width: 20%;
+            height: 2px;
+            background-color: white;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    }
+
+    .about_image{
+        width: 400px;
+        height: 400px;
+        float: left;
+        margin-left: 100px;
+        padding: 20px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    .about_content{
+
+        .title{
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .paragraph{
+            color: white;
+            font-size: 15px;
+            text-align: justify;
+            letter-spacing: 1px;
+            word-spacing: 1px;
+        }
+
+        .btnread{
+            margin: 30px 0;
+            
+            .btn{
+                background: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: crimson;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
+// Serives Page CSS
+.service__container{
+    padding: 50px;
+
+    .maintitle{
+        color: white;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 3rem;
+
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 37%;
+            width: 27%;
+            height: 2px;
+            background-color: white;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    }
+
+    .service_mainbox{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+
+        .service_box{
+            padding: 25px 15px;
+            position: relative;
+
+            &:hover{
+                
+                .image{
+                    opacity: .1;
+                }
+
+                .content{
+                    display: flex;
+                }
+            }
+
+            .image{
+                width: 100%;
+                height: 400px;
+                cursor: pointer;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                }
+            }
+
+            .content{
+                color: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 2rem;
+
+                .icon{
+                    font-size: 5rem;
+                    margin: 20px 0;
+                }
+
+                .title{
+                    font-size: 25px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                }
+
+                .paragraph{
+                    font-size: medium;
+                    text-transform: lowercase;
+                    text-align: justify;
+                    padding: 20px;
+                    letter-spacing: 1px;
+                    word-spacing: 1px;
+                }
+
+            }
+        }
+    }
+}
+
+
+// Rooms Page CSS
+.rooms__container{
+    padding: 50px;
+
+    .maintitle{
+        color: white;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 3rem;
+
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 40%;
+            width: 20%;
+            height: 2px;
+            background-color: white;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    }
+
+    .roommainbox{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 2rem;
+
+        .box{
+            width: 100%;
+            height: 300px;
+            position: relative;
+
+            &:hover{
+
+                .image{
+                    opacity: .2;
+                    transform: perspective(800px) rotateY(40deg) translateX(220px) translateZ(-220px);
+                }
+
+                .content{
+                    display: flex;
+                }
+            }
+
+            .image{
+                width: 100%;
+                height: 100%;
+                transition: 2s ease-in-out;
+                transform-style: preserve-3d;
+                
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                }
+            }
+
+            .content{
+                color: white;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: 0 35px;
+                transition: 2s ease;
+
+                .title{
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    text-align: center;
+                    text-transform: uppercase;
+                    padding: 20px 0;
+                }
+
+                .text{
+                    font-size: small;
+                    text-transform: lowercase;
+                    letter-spacing: 1px;
+                    word-spacing: 1px;
+                }
+
+                .button{
+                    width: 100%;
+                    padding: 20px 0;
+
+                    .btn{
+                        width: 100%;
+                        padding: 10px 0;
+                        background: white;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 16px;
+                        font-weight: 600;
+                        transition: 1s ease-out;
+                        position: relative;
+
+                        &:hover{
+                            background: none;
+                            color: white;
+
+                            &::before,
+                            &::after{
+                                width: 100%;
+                            }
+                        }
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 0;
+                            height: 2px;
+                            background-color: white;
+                            transition: 1s ease-in-out;
+                        }
+
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 0;
+                            height: 2px;
+                            background-color: white;
+                            transition: 1s ease-in-out;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+// Contact Us Page CSS
+.contact__container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+
+    .maintitle{
+        color: white;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 3rem;
+
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    }
+
+    .contact_info{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+
+        .box{
+            color: white;
+            padding: 20px;
+            text-align: center;
+
+            .icon{
+                font-size: 3rem;
+                padding: 20px 0;
+            }
+
+            .content{
+                font-size: medium;
+                font-weight: 600;                
+            }
+        }
+    }
+
+    form{
+        padding: 15px;
+        border-radius: 5px;
+        width: 40%;
+        height: auto;
+
+        .title {
+            font-size: larger;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .input{
+            margin: 15px 0;
+
+            label{
+                color: white;
+                font-size: medium;
+                font-weight: 700;
+            }
+            
+            input,
+            textarea {
+                background: none;
+                border: none;
+                padding: 5px 3px;
+                width: 100%;
+                color: white;
+                border-bottom: 1px solid white;
+                font-size: medium;
+                outline: none;
+                resize: none;
+            }
+        }
+
+        .btn-send{
+            width: 100%;
+            padding: 20px 0;
+
+            .btn{
+                width: 100%;
+                padding: 10px 0;
+                background: white;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;
+                border-left: 2px solid white;
+                border-right: 2px solid white;
+                transition: 1s ease-out;
+                position: relative;
+
+                &:hover{
+                    background: none;
+                    color: white;
+
+                    &::before,
+                    &::after{
+                        width: 100%;
+                    }
+                }
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: white;
+                    transition: 1s ease-in-out;
+                }
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: white;
+                    transition: 1s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+
+// Booking Page CSS
+.room-container{
+    padding: 5rem;
+
+    .room_title{
+        text-align: center;
+        position: relative;
+        margin-top: 5rem;
+        color: white;
+
+        &:nth-child(1){
+            margin-top: 0;
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 41%;
+            width: 250px;
+            height: 5px;
+            border-radius: 5px;
+            background: #0a58ca;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 43px;
+            right: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #0a58ca;
+        }
+
+        h2{
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .main-box{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 2rem;
+            margin-top: 2rem;
+
+            .box{
+                border-radius: 5px;
+                margin-top: 2rem;
+                box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.5);
+                
+                .room_number{
+                    padding: 1rem;
+                    background: #333;
+                    border-radius: 5px 5px 0 0;
+                    box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.5);
+
+                    h2{
+                        
+                        span{
+                            font-size: 1.5rem;
+                            font-weight: 600;
+                            letter-spacing: 1px;
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .room_detail{
+                    padding: 2rem 1rem;
+                    background-color: white;
+
+                    h2{
+                        color: black;
+
+                        span{
+                            font-size: 1rem;
+                        }
+                    }
+
+                    .button{
+                        margin-top: 1.5rem;
+
+                        a{
+                            padding: 0.6rem 1.5rem;
+                            color:#fff;
+                            border-radius: 5px;
+                            border: none;
+                            outline: none;
+                            cursor: pointer;
+                            background-color:#0d6efd;
+                            border-color:#0d6efd;
+
+                            &:hover{
+                                color:#fff;
+                                background-color:#0b5ed7;
+                                border-color: #0a58ca;
+                            }
+
+                            &:focus{
+                                color:#fff;
+                                background-color:#0b5ed7;
+                                border-color: #0a58ca;
+                                box-shadow:0 0 0 .25rem rgba(49,132,253,.5)
+                            }
+
+                            &:disabled{
+                                opacity: .6;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Booking Form
+.booking_form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 5rem;
+
+    form
+    {
+        width: 50%;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.5);
+        padding: 2rem;
+
+        h2{
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-align: center;
+            color: rgb(228, 227, 227);
+            padding-bottom: 1rem;
+            text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 1.0);
+        }
+        
+        .input{
+            margin: 1rem 0;
+
+            &.w100{
+                display: flex;
+                justify-content: space-between;                
+
+                .w50:nth-child(2){
+                    margin-left: 1rem;
+                }
+            }
+
+            label{
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                padding-left: .5rem;
+            }
+
+            input,textarea{
+                width: 100%;
+                padding: .5rem;
+                border: none;
+                outline: none;
+                font-size: inherit;
+                border-radius: 5px;
+                margin-top: 1rem;
+                text-transform: capitalize;
+                resize: none;
+                color: #747474;
+                box-shadow: 0 0 5px rgba(255,255,255,1),
+                            0 0 5px rgba(0,0,0,.5);
+                
+                &:focus,&:valid{
+                    box-shadow: inset -2px -2px 5px rgba(255,255,255,1),
+                                inset 3px 3px 5px rgba(0,0,0,0.1);
+                }
+
+            }
+        }
+
+        .button{
+            text-align: center;
+
+            button{
+                padding: .5rem 1rem;
+                border: none;
+                border-radius: 5px;
+                background: none;
+                outline: none;
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                cursor: pointer;
+                box-shadow: 0 0 5px rgba(255,255,255,1),
+                            0 0 5px rgba(0,0,0,.5);
+                
+                &:focus{
+                    color: #000;
+                    box-shadow: inset -2px -2px 5px rgba(255,255,255,1),
+                            inset 3px 3px 5px rgba(0,0,0,0.1);
+                }
+            }
+        }
+    }
+
+    .back-button{
+        margin-top: 4rem;
+
+        button{
+            padding: 0.6rem 1.5rem;
+            color:#fff;
+            border-radius: 5px;
+            background-color:#0d6efd;
+            border-color:#0d6efd;
+            border: none;
+            outline: none;
+            cursor: pointer;
+
+            &:hover{
+                color:#fff;
+                background-color:#0b5ed7;
+                border-color: #0a58ca;
+            }
+
+            &:focus{
+                color:#fff;
+                background-color:#0b5ed7;
+                border-color: #0a58ca;
+                box-shadow:0 0 0 .25rem rgba(49,132,253,.5)
+            }
+        }
+    }
+}
+
+
+// Download PDF
+.page_title{
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5rem;
+
+    &::before{
+        content: '';
+        position: absolute;
+        top: 135px;
+        left: 34%;
+        width: 500px;
+        border-radius: 5px;
+        height: 5px;
+        background: #0a58ca;
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 128px;
+        left: 50%;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background: #0a58ca;
+    }
+    
+
+    .page_name{
+
+        h2{
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: crimson;
+        }
+    }
+
+
+    .table-container{
+        width: 100%;
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba($color: #000, $alpha: 0.5);
+
+            thead{
+                tr{
+                    border-bottom: 1px solid #f0f0f0;
+
+                    th{
+                        padding: .5rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                        box-shadow: 0 0 2px rgba($color: #000, $alpha: 0.5);
+
+                        &:nth-child(1){
+                            border-top-left-radius: 8px;
+                        }
+
+                        &:last-child{
+                            border-top-right-radius: 8px;
+                        }
+                    }
+                }
+            }
+
+            tbody{
+                tr{
+                    text-align: center;
+                    color: #585858d5;
+
+                    td{
+                        padding: .4rem 1rem;
+
+                        button{
+                            padding: 0.6rem 1.5rem;
+                            color: #fff;
+                            border-radius: 5px;
+                            background-color: #0d6efd;
+                            border-color: #0d6efd;
+                            border: none;
+                            outline: none;
+                            cursor: pointer;
+
+                            &:hover{
+                                color: #fff;
+                                background-color: #0b5ed7;
+                                border-color: #0a58ca;
+                            }
+
+                            &:focus{
+                                color: #fff;
+                                background-color: #0b5ed7;
+                                border-color: #0a58ca;
+                                box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
+                            }
+                        }
+                    }
+
+                    &:hover{
+                        color: #000;
+                    }
+
+                    &:nth-child(even){
+                        background-color: #dcdcdc72;
+                    }
+                }
+            }
+        }
+    }
+
+    .box{
+        width: 80%;
+        height: 30vh;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+        h2{
+            font-size: 4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: crimson;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a{
+                margin-left: 5rem;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+                border-radius: 5px;
+
+                &:hover{
+                    background-color: crimson;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+
+
+// Footer Container CSS
+footer{
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    border-top: 1px solid white;
+    text-transform: capitalize;
+    word-spacing: 2px;
+}
+
+
+// Set Device
+@media (max-width: 990px) {
+
+    // Body
+    body{
+
+        &.scroll{
+
+            header{
+                padding: 5px 30px;
+
+                .btnmenu{
+                    color: white;
+                }
+
+                .togglebtn{
+                    color: black;
+                }
+            }
+
+        }
+    }
+    
+    // Header
+    header{
+        padding: 5px 50px;
+
+        &.mobilemenu{
+
+            nav{
+                left: 0;
+            }
+        }
+
+        .logo{
+            font-size: medium;
+        }
+
+        nav{
+            position: absolute;
+            top: 100%;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: blue;
+            transition: 1s ease-in-out;
+
+            ul{
+                display: block;
+
+                li{
+                    margin: 2rem 0;
+                    text-align: center;
+
+                    a{
+                        padding: 10px;
+                        transition: 1s ease-in-out;
+
+                        &:hover{
+                            background-color: crimson;
+
+                            &::after{
+                                width: 100%;
+                                opacity: 1;
+                            }
+                        }
+
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            top: -5px;
+                            left: 0;
+                            width: 0;
+                            height: 2px;
+                            opacity: 0;
+                            background-color: white;
+                            transition: 1s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+
+        .togglebtn{
+            display: block;
+        }
+    }
+
+    //Home Page CSS
+    .home__container{
+        justify-content: space-around;
+        position: relative;
+
+        .home_content{
+            color: crimson;
+
+            h1{
+                font-size: 2.5rem;
+
+            }
+            h3{
+                font-size: 1.5rem;
+            }
+        }
+
+        .home_image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+
+            img{
+                border-radius: 0;
+            }
+        }
+    }
+
+
+    // About Page CSS
+    .about__container{
+        padding: 25px;
+
+        .maintitle{
+            font-size: 2rem;
+
+            &::before{
+                left: 40%;
+                width: 20%;
+            }
+        }
+
+        .about_image{
+            width: 300px;
+            height: 300px;
+            margin-left: 70px;
+        }
+
+        .about_content{
+
+            .title{
+                font-size: 1.3rem;
+            }
+
+            .paragraph{
+                font-size: smaller;
+            }
+
+            .btnread{
+
+                .btn{
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+
+    // Serives Page CSS
+    .service__container{
+        padding: 25px;
+
+        .maintitle{
+            font-size: 2rem;
+
+            &::before{
+                left: 35%;
+                width: 30%;
+            }
+        }
+
+        .service_mainbox{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+
+
+    // Rooms Page CSS
+    .rooms__container{
+        padding: 25px;
+
+        .maintitle{
+            font-size: 2rem;
+
+            &::before{
+                left: 40%;
+                width: 20%;
+            }
+        }
+
+        .roommainbox{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+
+
+    // ContactUs Page CSS
+    .contact__container{
+        padding: 25px;
+
+        .maintitle{
+            font-size: 2rem;
+        }
+
+        .contact_info{
+            display: block;
+        }
+
+        form{
+            width: 100%;
+        }
+    }
+
+
+    // Booking Page CSS
+    .room-container{
+
+        .room_title{
+            &::before{
+                left: 30%;
+            }
+
+            .main-box{
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+    }
+
+
+    // Booking-form Page CSS
+    .booking_form{
+        padding: 2rem;
+
+        form{
+            width: 100%;
+        }
+    }
+
+    // Download PDF Page CSS
+    .page_title{
+        padding: 0 1rem;
+
+        &::before{
+            left: 24%;
+        }
+
+        .box{
+            width: 100%;
+
+            h2{
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+
+// Set Device
+@media (max-width: 600px) {
+
+    //Home Page CSS
+    .home__container{
+        flex-direction: column;
+        justify-content: space-around;
+        position: relative;
+
+        .home_content{
+            color: crimson;
+
+            h1{
+                font-size: 2.5rem;
+
+            }
+            h3{
+                font-size: 1.5rem;
+            }
+        }
+
+        .home_image{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+
+            img{
+                border-radius: 0;
+            }
+        }
+
+        .social_icon{
+            display: flex;
+            
+            .icon{
+                margin: 0 15px;
+
+                p{
+                    top: 50px;
+                    left: -30px;
+                }
+            }
+        }
+    }
+
+
+    // About Page CSS
+    .about__container{
+
+        .maintitle{
+
+            &::before{
+                left: 130px;
+                width: 40%;
+            }
+        }
+
+        .about_content{
+
+            .title{
+                font-size: 1rem;
+            }
+
+        }
+    }
+
+
+    // Serives Page CSS
+    .service__container{
+
+        .maintitle{
+
+            &::before{
+                left: 23%;
+                width: 55%;
+            }
+        }
+
+        .service_mainbox{
+            grid-template-columns: repeat(1,1fr);
+        }
+    }
+
+
+    // Rooms Page CSS
+    .rooms__container{
+
+        .maintitle{
+
+            &::before{
+                left: 30%;
+                width: 40%;
+            }
+        }
+
+        .roommainbox{
+            grid-template-columns: repeat(1,1fr);
+        }
+    }
+
+
+    // Booking Page CSS
+    .room-container{
+        padding: 5rem 2rem;
+
+        .room_title{
+            &::before{
+                left: 20%;
+            }
+
+            .main-box{
+                grid-template-columns: repeat(1,1fr);
+            }
+        }
+    }
+
+
+    // Booking-form Page CSS
+    .booking_form{
+        padding: 2rem;
+
+        form{
+            width: 100%;
+
+            .input{
+                &.w100{
+                    flex-direction: column;
+
+                    .w50:nth-child(2){
+                        margin-left: 0;
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+
+    // Download PDF Page CSS
+    .page_title{
+
+        &::before{
+            top: 125px;            
+            left: 15%;
+            width: 360px;
+        }
+        &::after{
+            top: 118px;
+        }
+
+        .page_name{
+
+            h2{
+                font-size: 3rem;
+            }
+        }
+
+        .table-container{
+    
+            table{
+                display: flex;
+    
+                thead{
+                    width: 50%;
+
+                    tr{    
+                        th{
+                            width: 200%;
+                            display: block;
+    
+                            &:first-child{
+                                border-top-left-radius: 8px;
+                            }
+    
+                            &:last-child{
+                                border-top-right-radius: 0;
+                                border-bottom-left-radius: 8px;
+                            }
+                        }
+                    }
+                }
+    
+                tbody{
+                    width: 50%;
+                    
+                    tr{
+                        td{
+                            width: 200%;
+                            display: block;
+    
+                            button{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .box{
+            height: 15vh;
+
+            h2{
+                font-size: 1.5rem;
+
+                a{
+                    margin-left: 4rem;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

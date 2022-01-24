@@ -1,0 +1,15 @@
+Error
+
+    - File Path Error (Solve)
+    - Customer Data Inser (Solve)
+    - Customer Data Delete (solve)
+    - Room Book for Connection (solve)
+    - Create A New Room 
+    - Delete Room (solve)
+    - Checkout Connection Error (solve)
+    - Checkout file include  Error (solve)
+    - Checkout Undefined Variable con (solve)
+    - car booking Connection Error (solve)
+    - car booking file include  Error (solve)
+    - car booking Undefined Variable con (solve)
+    - 
