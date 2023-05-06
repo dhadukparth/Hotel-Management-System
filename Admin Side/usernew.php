@@ -47,7 +47,7 @@
                             <option value="">-- Select User Role --</option>
                             <option value="1">Main - Manager</option>
                             <option value="2">Manager</option>
-                            <option value="3">Staf</option>
+                            <option value="3">Staff</option>
                         </select>
                     </div>
                     <div class="input">

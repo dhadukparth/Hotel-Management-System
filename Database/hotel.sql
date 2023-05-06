@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Sep 27, 2021 at 06:27 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Host: 127.0.0.1
+-- Generation Time: May 06, 2023 at 05:37 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,24 +27,23 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `role` int(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `images` varchar(255) NOT NULL,
-  `Dstatus` int(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  `Dstatus` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `role`, `email`, `password`, `images`, `Dstatus`) VALUES
-(1, 'admin123', 1, 'admin@gmail.com', 'admin123', 'profile.jpg', 0);
+(1, 'admin123', 1, 'admin@gmail.com', 'admin123', 'profile.jpg', 0),
+(2, 'parthpatel', 2, 'parth@gmail.com', 'parthpatel', 'girl-g9ff848c34_1920.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -52,15 +51,21 @@ INSERT INTO `admin` (`id`, `username`, `role`, `email`, `password`, `images`, `D
 -- Table structure for table `cars_booking`
 --
 
-DROP TABLE IF EXISTS `cars_booking`;
-CREATE TABLE IF NOT EXISTS `cars_booking` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cars_booking` (
+  `id` int(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `mobile` bigint(255) NOT NULL,
-  `cars` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `cars` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cars_booking`
+--
+
+INSERT INTO `cars_booking` (`id`, `name`, `email`, `mobile`, `cars`) VALUES
+(1, 'Rakesh', 'rakesh@gmail.com', 7458963210, 'book'),
+(2, 'kaushikjotav', 'kaushik@gmail.com', 7536984120, 'Meet -> GJ03-EG-4820');
 
 -- --------------------------------------------------------
 
@@ -68,9 +73,8 @@ CREATE TABLE IF NOT EXISTS `cars_booking` (
 -- Table structure for table `customer_details`
 --
 
-DROP TABLE IF EXISTS `customer_details`;
-CREATE TABLE IF NOT EXISTS `customer_details` (
-  `id` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `customer_details` (
+  `id` int(255) NOT NULL,
   `fname` varchar(255) DEFAULT NULL,
   `lname` varchar(255) DEFAULT NULL,
   `room_no` int(255) DEFAULT NULL,
@@ -84,9 +88,8 @@ CREATE TABLE IF NOT EXISTS `customer_details` (
   `address` varchar(255) DEFAULT NULL,
   `price` bigint(255) NOT NULL,
   `status` int(11) DEFAULT NULL,
-  `Dstatus` int(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+  `Dstatus` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer_details`
@@ -94,8 +97,11 @@ CREATE TABLE IF NOT EXISTS `customer_details` (
 
 INSERT INTO `customer_details` (`id`, `fname`, `lname`, `room_no`, `room_type`, `checkin`, `checkout`, `member`, `children`, `mobile`, `email`, `address`, `price`, `status`, `Dstatus`) VALUES
 (1, 'parth', 'dhaduk', 151, 'Single Ac', '2020-02-15', '2020-02-25', 2, 0, 9874563210, 'parth@gmail.com', 'nakra', 4000, 1, 0),
-(2, 'rajan', 'dhokiya', 155, 'Single Ac', '2020-02-01', '2021-02-28', 2, 0, 9874152630, 'rajan@gmail.com', 'saradiya', 4000, 0, 0),
-(3, 'kaushik', 'jotav', 102, 'Single Ac', '2021-09-01', '2021-09-16', 2, 0, 7536984120, 'kaushik@gmail.com', 'talala', 4000, 0, 0);
+(2, 'rajan', 'dhokiya', 155, 'Single Ac', '2020-02-01', '2021-02-28', 2, 0, 9874152630, 'rajan@gmail.com', 'saradiya', 4000, -1, 0),
+(3, 'kaushik', 'jotav', 102, 'Single Ac', '2021-09-01', '2021-09-16', 2, 0, 7536984120, 'kaushik@gmail.com', 'talala', 4000, 1, 0),
+(4, 'parth', 'patel', 202, 'Single Non Ac', '2023-05-06', '2023-05-30', 5, 3, 7891230456, 'p@gmail.com', 'patel nagar,\r\njunagadh', 3000, 0, 0),
+(5, 'mital', 'mital', 151, 'Single Ac', '2015-07-07', '2015-07-10', 1, 0, 7722445588, 'mital@gmail.com', 'rajkot', 4000, 0, 0),
+(6, 'rutvik', 'rutvik', 451, 'Double Non Ac', '2015-04-07', '2015-04-08', 1, 0, 4488556622, 'rutvik@gmail.com', 'junagadh', 5000, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -103,16 +109,14 @@ INSERT INTO `customer_details` (`id`, `fname`, `lname`, `room_no`, `room_type`, 
 -- Table structure for table `rooms`
 --
 
-DROP TABLE IF EXISTS `rooms`;
-CREATE TABLE IF NOT EXISTS `rooms` (
-  `id` int(25) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `rooms` (
+  `id` int(25) NOT NULL,
   `room_no` int(255) NOT NULL,
   `room_type` varchar(255) NOT NULL,
   `room_price` int(255) NOT NULL,
   `status` int(255) NOT NULL,
-  `Dstatus` int(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+  `Dstatus` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `rooms`
@@ -120,17 +124,17 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 
 INSERT INTO `rooms` (`id`, `room_no`, `room_type`, `room_price`, `status`, `Dstatus`) VALUES
 (1, 101, 'Single Ac', 4000, 1, 0),
-(2, 102, 'Single Ac', 4000, 0, 0),
+(2, 102, 'Single Ac', 4000, 1, 0),
 (3, 103, 'Single Ac', 4000, 1, 0),
 (4, 104, 'Single Ac', 4000, 1, 0),
 (5, 105, 'Single Ac', 4000, 1, 0),
-(6, 151, 'Single Ac', 4000, 1, 0),
+(6, 151, 'Single Ac', 4000, 0, 0),
 (7, 152, 'Single Ac', 4000, 1, 0),
 (8, 153, 'Single Ac', 4000, 1, 0),
 (9, 154, 'Single Ac', 4000, 1, 0),
-(10, 155, 'Single Ac', 4000, 0, 0),
+(10, 155, 'Single Ac', 4000, -1, 0),
 (11, 201, 'Single Non Ac', 3000, 1, 0),
-(12, 202, 'Single Non Ac', 3000, 1, 0),
+(12, 202, 'Single Non Ac', 3000, 0, 0),
 (13, 203, 'Single Non Ac', 3000, 1, 0),
 (14, 204, 'Single Non Ac', 3000, 1, 0),
 (15, 205, 'Single Non Ac', 3000, 1, 0),
@@ -154,7 +158,7 @@ INSERT INTO `rooms` (`id`, `room_no`, `room_type`, `room_price`, `status`, `Dsta
 (33, 403, 'Double Non Ac', 5000, 1, 0),
 (34, 404, 'Double Non Ac', 5000, 1, 0),
 (35, 405, 'Double Non Ac', 5000, 1, 0),
-(36, 451, 'Double Non Ac', 5000, 1, 0),
+(36, 451, 'Double Non Ac', 5000, 0, 0),
 (37, 452, 'Double Non Ac', 5000, 1, 0),
 (38, 453, 'Double Non Ac', 5000, 1, 0),
 (39, 454, 'Double Non Ac', 5000, 1, 0),
@@ -169,6 +173,62 @@ INSERT INTO `rooms` (`id`, `room_no`, `room_type`, `room_price`, `status`, `Dsta
 (48, 553, 'Luxury', 10000, 1, 0),
 (49, 554, 'Luxury', 10000, 1, 0),
 (50, 555, 'Luxury', 10000, 1, 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cars_booking`
+--
+ALTER TABLE `cars_booking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer_details`
+--
+ALTER TABLE `customer_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `cars_booking`
+--
+ALTER TABLE `cars_booking`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `customer_details`
+--
+ALTER TABLE `customer_details`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

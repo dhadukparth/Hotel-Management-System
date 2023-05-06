@@ -2,11 +2,10 @@
 
     session_start();
     include "./include/connection.php";
-    // $fnm = $_SESSION['pdfname'];
-    // $lnm = $_SESSION['pdflname'];
+    $fnm = $_SESSION['pdfname'];
+    $lnm = $_SESSION['pdflname'];
 
-    $fnm = "parth";
-    $lnm = "dhaduk";
+
     if($fnm == "" or $lnm == "")
     {
         header("location: booking.php");
@@ -56,7 +55,6 @@
             }
 
         }
-        
 
 
         $pdf = new PDF();

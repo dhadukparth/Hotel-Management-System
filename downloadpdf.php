@@ -114,6 +114,9 @@
 <?php
     if(isset($_POST['pdf']))
     {
+        session_start();
+        $_SESSION['pdfname'] = $fnm;
+        $_SESSION['pdflname'] = $lnm;
         header("location: pdf.php");
     }
 ?>

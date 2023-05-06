@@ -28,7 +28,7 @@
 
         <div class="page_title">
             <div class="page_name">
-                <h2>CheckOut Information</h2>
+                <h2>Car Booking</h2>
             </div>
 
             <form method="post">
