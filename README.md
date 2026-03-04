@@ -220,8 +220,25 @@ This project is licensed under the **MIT License** — free for personal and com
 
 ---
 
+## 📬 Contact
+
+Have questions, found a bug, or want to contribute? Feel free to reach out!
+
 <div align="center">
 
-Made with ❤️ | If this project helped you, please ⭐ star the repository!
+### Parth Dhaduk
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ParthDhaduk)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ps359511@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/patelparth2456)
+
+</div>
+
+---
+
+<div align="center">
+
+Made with ❤️ by **Parth Dhaduk**
+⭐ If you found this project helpful, please give it a star!
 
 </div>
